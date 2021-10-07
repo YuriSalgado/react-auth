@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { SyntheticEvent, useState } from 'react';
+import { Redirect } from 'react-router';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
+
+  const submit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    await fetch('https://reqres.in/api/login/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      //credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password
+      })
+    })
+
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    return <Redirect to="/" />;
+  }
+
   return (
-    <form>
+    <form onSubmit={submit}>
       <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div className="form-floating">
-        <input type="email" className="form-control" placeholder="name@example.com" />
+        <input type="email" className="form-control" placeholder="eve.holt@reqres.in" required
+          onChange={e => setEmail(e.target.value)}
+        />
         <label htmlFor="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
-        <input type="password" className="form-control" placeholder="Password" />
+        <input type="password" className="form-control" placeholder="cityslicka" required
+          onChange={e => setPassword(e.target.value)}
+        />
         <label htmlFor="floatingPassword">Password</label>
       </div>
 
