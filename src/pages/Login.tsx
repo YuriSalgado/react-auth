@@ -9,10 +9,10 @@ const Login = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await fetch('https://reqres.in/api/login/', {
+    await fetch('http://localhost:8000/api/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      //credentials: 'include',
+      credentials: 'include',
       body: JSON.stringify({
         email,
         password
