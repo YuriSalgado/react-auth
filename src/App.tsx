@@ -27,11 +27,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav name={name}/>
+        <Nav name={name} setName={setName}/>
         
         <main className="form-center">
           <Route path="/" exact component={() => <Home name={name} />} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={() => <Login setName={setName} />} />
           <Route path="/register" component={Register} />
         </main>
       </BrowserRouter>
