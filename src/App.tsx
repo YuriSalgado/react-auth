@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
@@ -7,31 +7,16 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 function App() {
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-      (
-          async () => {
-              const response = await fetch(`http://localhost:8000/api/user`, {
-                  headers: {'Content-Type': 'application/json'},
-                  credentials: 'include'
-              });
-
-              const content = await response.json();
-
-              setName(content.email);
-          }
-      )();
-  }, []) // If you want to control when effect is to be executed after mounting the component
+  const [authenticated, setAuthenticated] = useState(false);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav name={name} setName={setName}/>
+        <Nav authenticated={authenticated} setAuthenticated={setAuthenticated}/>
         
         <main className="form-center">
-          <Route path="/" exact component={() => <Home name={name} />} />
-          <Route path="/login" component={() => <Login setName={setName} />} />
+          <Route path="/" exact component={() => <Home authenticated={authenticated} />} />
+          <Route path="/login" component={() => <Login authenticated={authenticated} setAuthenticated={setAuthenticated} />} />
           <Route path="/register" component={Register} />
         </main>
       </BrowserRouter>

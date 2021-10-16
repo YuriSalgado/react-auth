@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = (props: { name: string, setName: (name: string) => void }) => {
+const Nav = (props: { authenticated: boolean, setAuthenticated : (authenticated: boolean) => void }) => {
+
     const logout = async () => {
         await fetch('http://localhost:8000/api/logout', {
             method: 'GET',
@@ -9,23 +10,21 @@ const Nav = (props: { name: string, setName: (name: string) => void }) => {
             credentials: 'include'
         })
 
-        props.setName('')
+        props.setAuthenticated(false);
     }
 
-    let menu;
+    let menu = (
+        <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li className="nav-item">
+                <Link to="/login" className="nav-link">Login</Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/register" className="nav-link">Register</Link>
+            </li>
+        </ul>
+    )
 
-    if (props.name === '') {
-        menu = (
-            <ul className="navbar-nav me-auto mb-2 mb-md-0">
-                <li className="nav-item">
-                    <Link to="/login" className="nav-link">Login</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/register" className="nav-link">Register</Link>
-                </li>
-            </ul>
-        )
-    } else {
+    if (props.authenticated) {
         menu = (
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
                 <li className="nav-item">
