@@ -23,8 +23,7 @@ const Home = (props: { authenticated: boolean }) => {
         <div>
             <h3>Olá, {email}</h3> 
             você está autenticado? 
-            <p>{props.authenticated ? "SIM" : "NÃO" }</p> 
-            <h1>{props.authenticated}</h1>
+            <p>{props.authenticated ? "SIM" : "NÃO" }</p>
         </div>
     );
 };
