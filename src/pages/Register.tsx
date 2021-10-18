@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -28,7 +29,7 @@ const Register = () => {
     }
 
     return (
-        <form onSubmit={submit}>
+        <form className="form-center text-center" onSubmit={submit}>
             <h1 className="h3 mb-3 fw-normal">Please register</h1>
 
             <div className="form-floating">
@@ -50,8 +51,13 @@ const Register = () => {
                 <label htmlFor="floatingPassword">Password</label>
             </div>
 
-            <button className="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-            <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+            <div className="checkbox mb-3">
+                <label>
+                    <Link to="/login" className="nav-link">Sign in</Link>
+                </label>
+            </div>
+            <p className="mt-5 mb-3 text-muted">&copy; 2021</p>
         </form>
     );
 };

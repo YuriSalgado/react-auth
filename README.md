@@ -21,4 +21,7 @@ Navigate to `http://localhost:3000/`. The app will automatically reload if you c
 
 ## Overview
 
-- [ ] in progress
+<p align="center">
+  <img src="https://imgur.com/ElEhGl1.png?raw=true" alt="Register User"/>
+  <img src="https://imgur.com/X8Grwfl.png?raw=true" alt="Login User"/>
+</p>
