@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 React-auth é uma demonstração ...
 - React with TypeScript
-- 1 components
-- 3 pages
+- 1 components (nav)
+- 3 pages (login, register and home)
 
 ## Install
 
