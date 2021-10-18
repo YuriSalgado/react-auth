@@ -9,6 +9,16 @@ React-auth é uma demonstração ...
 - 1 components (nav)
 - 3 pages (login, register and home)
 
+## Implementation list
+- [x] React, TypeScript, SPA
+- [x] JWT Authentication Cookies
+- [x] Bootstrap for CSS, grid, flex
+- [x] Hook de estado (useState)
+- [x] Hook de efeito (useEffect)
+- [ ] Axios
+- [ ] Context API
+- [ ] Testing
+
 ## Install
 
 1. Packages `npm install`
