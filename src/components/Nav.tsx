@@ -13,7 +13,7 @@ const Nav = (props: { setAuthenticated : (authenticated: boolean) => void }) => 
             credentials: 'include'
         })
 
-        const logout = await response.json();debugger;
+        const logout = await response.json();
         if (logout.message === "success") {
             props.setAuthenticated(false);
             history.go(0);
