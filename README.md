@@ -17,6 +17,7 @@ React-auth é uma demonstração ...
 - [x] Hook de efeito (useEffect)
 - [ ] Axios
 - [ ] Context API
+- [ ] Protected Router
 - [ ] Testing
 
 ## Install
